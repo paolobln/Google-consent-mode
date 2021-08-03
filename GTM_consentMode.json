@@ -1,0 +1,237 @@
+{
+    "exportFormatVersion": 2,
+    "exportTime": "2021-08-03 19:06:41",
+    "containerVersion": {
+        "path": "accounts/6003449276/containers/43997634/versions/0",
+        "accountId": "6003449276",
+        "containerId": "43997634",
+        "containerVersionId": "0",
+        "container": {
+            "path": "accounts/6003449276/containers/43997634",
+            "accountId": "6003449276",
+            "containerId": "43997634",
+            "name": "GTM Injector",
+            "publicId": "GTM-5GTBV5F",
+            "usageContext": [
+                "WEB"
+            ],
+            "fingerprint": "1627844196792",
+            "tagManagerUrl": "https://tagmanager.google.com/#/container/accounts/6003449276/containers/43997634/workspaces?apiLink=container"
+        },
+        "tag": [
+            {
+                "accountId": "6003449276",
+                "containerId": "43997634",
+                "tagId": "19",
+                "name": "consent granted",
+                "type": "html",
+                "parameter": [
+                    {
+                        "type": "TEMPLATE",
+                        "key": "html",
+                        "value": "<script>\n   {\n    gtag('consent', 'update', {\n    'ad_storage': 'granted',\n    'analytics_storage': 'granted'\n    });\n  }\n</script>"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "supportDocumentWrite",
+                        "value": "false"
+                    }
+                ],
+                "fingerprint": "1628012944029",
+                "firingTriggerId": [
+                    "4"
+                ],
+                "tagFiringOption": "ONCE_PER_EVENT",
+                "monitoringMetadata": {
+                    "type": "MAP"
+                }
+            },
+            {
+                "accountId": "6003449276",
+                "containerId": "43997634",
+                "tagId": "21",
+                "name": "Google Analytics Universal Analytics",
+                "type": "ua",
+                "parameter": [
+                    {
+                        "type": "BOOLEAN",
+                        "key": "overrideGaSettings",
+                        "value": "true"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "trackType",
+                        "value": "TRACK_PAGEVIEW"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "trackingId",
+                        "value": "UA-00000-3"
+                    }
+                ],
+                "fingerprint": "1628017591718",
+                "firingTriggerId": [
+                    "2147479553"
+                ],
+                "tagFiringOption": "ONCE_PER_EVENT",
+                "monitoringMetadata": {
+                    "type": "MAP"
+                }
+            }
+        ],
+        "trigger": [
+            {
+                "accountId": "6003449276",
+                "containerId": "43997634",
+                "triggerId": "4",
+                "name": "CE - consentGranted",
+                "type": "CUSTOM_EVENT",
+                "customEventFilter": [
+                    {
+                        "type": "EQUALS",
+                        "parameter": [
+                            {
+                                "type": "TEMPLATE",
+                                "key": "arg0",
+                                "value": "{{_event}}"
+                            },
+                            {
+                                "type": "TEMPLATE",
+                                "key": "arg1",
+                                "value": "consentGranted"
+                            }
+                        ]
+                    }
+                ],
+                "fingerprint": "1628012722961"
+            },
+            {
+                "accountId": "6003449276",
+                "containerId": "43997634",
+                "triggerId": "7",
+                "name": "invio form",
+                "type": "FORM_SUBMISSION",
+                "waitForTags": {
+                    "type": "TEMPLATE"
+                },
+                "checkValidation": {
+                    "type": "TEMPLATE"
+                },
+                "waitForTagsTimeout": {
+                    "type": "TEMPLATE",
+                    "value": "2000"
+                },
+                "uniqueTriggerId": {
+                    "type": "TEMPLATE"
+                },
+                "fingerprint": "1625511351827"
+            }
+        ],
+        "builtInVariable": [
+            {
+                "accountId": "6003449276",
+                "containerId": "43997634",
+                "type": "PAGE_URL",
+                "name": "Page URL"
+            },
+            {
+                "accountId": "6003449276",
+                "containerId": "43997634",
+                "type": "PAGE_HOSTNAME",
+                "name": "Page Hostname"
+            },
+            {
+                "accountId": "6003449276",
+                "containerId": "43997634",
+                "type": "PAGE_PATH",
+                "name": "Page Path"
+            },
+            {
+                "accountId": "6003449276",
+                "containerId": "43997634",
+                "type": "REFERRER",
+                "name": "Referrer"
+            },
+            {
+                "accountId": "6003449276",
+                "containerId": "43997634",
+                "type": "EVENT",
+                "name": "Event"
+            },
+            {
+                "accountId": "6003449276",
+                "containerId": "43997634",
+                "type": "CLICK_ELEMENT",
+                "name": "Click Element"
+            },
+            {
+                "accountId": "6003449276",
+                "containerId": "43997634",
+                "type": "CLICK_CLASSES",
+                "name": "Click Classes"
+            },
+            {
+                "accountId": "6003449276",
+                "containerId": "43997634",
+                "type": "CLICK_ID",
+                "name": "Click ID"
+            },
+            {
+                "accountId": "6003449276",
+                "containerId": "43997634",
+                "type": "CLICK_TARGET",
+                "name": "Click Target"
+            },
+            {
+                "accountId": "6003449276",
+                "containerId": "43997634",
+                "type": "CLICK_URL",
+                "name": "Click URL"
+            },
+            {
+                "accountId": "6003449276",
+                "containerId": "43997634",
+                "type": "CLICK_TEXT",
+                "name": "Click Text"
+            },
+            {
+                "accountId": "6003449276",
+                "containerId": "43997634",
+                "type": "FORM_ELEMENT",
+                "name": "Form Element"
+            },
+            {
+                "accountId": "6003449276",
+                "containerId": "43997634",
+                "type": "FORM_CLASSES",
+                "name": "Form Classes"
+            },
+            {
+                "accountId": "6003449276",
+                "containerId": "43997634",
+                "type": "FORM_ID",
+                "name": "Form ID"
+            },
+            {
+                "accountId": "6003449276",
+                "containerId": "43997634",
+                "type": "FORM_TARGET",
+                "name": "Form Target"
+            },
+            {
+                "accountId": "6003449276",
+                "containerId": "43997634",
+                "type": "FORM_URL",
+                "name": "Form URL"
+            },
+            {
+                "accountId": "6003449276",
+                "containerId": "43997634",
+                "type": "FORM_TEXT",
+                "name": "Form Text"
+            }
+        ],
+        "fingerprint": "1628017601763",
+        "tagManagerUrl": "https://tagmanager.google.com/#/versions/accounts/6003449276/containers/43997634/versions/0?apiLink=version"
+    }
+}
