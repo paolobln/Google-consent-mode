@@ -1,7 +1,8 @@
 Ci sono due modalità testate per il Consent Mode di Google e non prevedono l'utilizzo di CMP quali Iubenda, Cookiebot etc.
 
 
-1. La prima richiama la funzione consentGranted tramite il click sul pulsante di accettazione dei cookies
+1. La prima richiama la funzione consentGranted tramite il click sul pulsante di accettazione dei cookies. 
+Si faccia riferimento al [seguente file](https://github.com/paolobtl/consentmode/blob/338673c9498658bf00d097b9afe15cc7dd69470b/consent.html) per testare l'implementazione.
 ```html
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
@@ -38,7 +39,7 @@ Ovvero la funzione potrebbe essere richiamata dal pulsante di accettazione dei c
 </body>
 ```
 ***
-2. La seconda implementazione coinvolge Tag Manager ed ha la seguente struttura:
+2. La seconda implementazione coinvolge Tag Manager ed ha la seguente struttura (Utilizzare [questo contenitore](https://github.com/paolobtl/consentmode/blob/0fe28f6927be678159fb11578dd8a4bf18a876b0/GTM_consentMode.json) come esempio):
 ```html
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -74,5 +75,5 @@ gtag('consent', 'update', {
     });
 ```
 
-ll sovramenzionato snippet andrà inserito in un tag HTML personalizzato. Utilizza il contenitore come esempio GTM-5GTBV5F.
+ll sovramenzionato snippet andrà inserito in un tag HTML personalizzato.
 [Guida di Google Developers](https://developers.google.com/gtagjs/devguide/consent)
