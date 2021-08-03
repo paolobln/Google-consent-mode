@@ -1,6 +1,6 @@
 ﻿## Consent Mode
 
-This repo aims to be an easy and understandable implementation of the [Consent Mode](https://support.google.com/google-ads/answer/10000067?hl=en) by Google if you are using your own cookie banner.
+This repo aims to be an easy and understandable guide to the implementation of the [Consent Mode](https://support.google.com/google-ads/answer/10000067?hl=en) by Google if you are using your own cookie banner.
 There are three files:
 1. **consent.html** is an HTML page that show the logic behind the consent mode
 2. **GTM_consentMode.json** it is a Google Tag Manager container that can be [imported](https://support.google.com/tagmanager/answer/6106997?hl=en#import) in your GTM account
