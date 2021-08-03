@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consent Mode</title>
+
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-00000-3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+
+  // Default ad_storage to 'denied'.
+  gtag('consent', 'default', {
+    'ad_storage': 'denied',
+    'analytics_storage': 'denied',
+    'wait_for_update': 500
+  });
+  gtag('set', 'url_passthrough', true);
+  gtag('set', 'ads_data_redaction', false);
+
+
+  gtag('js', new Date());
+  gtag('config', 'UA-000000-3');
+</script>
+
+<!-- TODO this section should be updated based on your business requirements. -->
+<script>
+  function consentGranted() {
+    gtag('consent', 'update', {
+    'ad_storage': 'granted',
+    'analytics_storage': 'granted'
+    });
+  }
+</script>
+</head>
+<body>
+  ...
+  <button onclick="consentGranted()">Yes</button>
+  ...
+</body>
+
+</html>
