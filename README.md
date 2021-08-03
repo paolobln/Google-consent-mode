@@ -5,6 +5,11 @@ There are three files:
 1. **consent.html** is an HTML page that show the logic behind the consent mode
 2. **GTM_consentMode.json** it is a Google Tag Manager container that can be [imported](https://support.google.com/tagmanager/answer/6106997?hl=en#import) in your GTM account
 3. **consentMode.md** explains two ways to implement this feature if you are using your own cookie banner
+***
+The logic behind the Consent Mode itself it is quite easy:
+- The command <script>gtag('consent', 'default'</script> is called before any Google tag and before the cookie banner. At this stage the Analytics/Ads or GTM tag **has** to be   loaded as well. No cookies will be saved on visitor's machine
+- The cookied banner loads and waits for the user's choice
+- The selection on the cookie banner calls the command <script>gtag('consent', 'update'</script> which should update the tags accordingly to the user's preferencs
 
 
 Additional links from Google:
