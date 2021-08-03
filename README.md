@@ -16,3 +16,4 @@ Additional links from Google:
 - [Adjust tag behavior based on consent](https://developers.google.com/gtagjs/devguide/consent)
 - [Consent configuration](https://support.google.com/tagmanager/answer/10718549)
 - [How Google uses consent mode data](https://support.google.com/google-ads/answer/10031513)
+- [Blog announcement](https://blog.google/products/marketingplatform/360/measure-conversions-while-respecting-user-consent-choices/)
