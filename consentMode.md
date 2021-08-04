@@ -15,6 +15,8 @@ Si faccia riferimento al [seguente file](https://github.com/paolobtl/consentmode
     'ad_storage': 'denied',
     'analytics_storage': 'denied'
   });
+  gtag('set', 'url_passthrough', true);
+  gtag('set', 'ads_data_redaction', false);
 
 <!-- in alternativa qui si puó incollare il codice di Tag Manager togliendo il primo <script> -->
   gtag('js', new Date());
@@ -50,6 +52,9 @@ Ovvero la funzione potrebbe essere richiamata dal pulsante di accettazione dei c
     'ad_storage': 'denied',
     'analytics_storage': 'denied'
   });
+  gtag('set', 'url_passthrough', true);
+  gtag('set', 'ads_data_redaction', false);
+  
 <!-- Google Tag Manager -->
 (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
