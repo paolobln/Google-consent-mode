@@ -1,59 +1,86 @@
 Ci sono due modalità testate per il Consent Mode di Google e non prevedono l'utilizzo di CMP quali Iubenda, Cookiebot etc.
 
 
-1. La prima richiama la funzione consentGranted tramite il click sul pulsante di accettazione dei cookies. 
-Si faccia riferimento al [seguente file](https://github.com/paolobtl/consentmode/blob/338673c9498658bf00d097b9afe15cc7dd69470b/consent.html) per testare l'implementazione.
+1. The first method calls the function <code>consentGranted</code> by clicking the Cookie acceptance button. 
+Please refer to [this file](https://github.com/paolobtl/consentmode/blob/338673c9498658bf00d097b9afe15cc7dd69470b/consent.html) to test this implementation.
 ```html
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consent Mode</title>
+
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-00000-3"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-000000-3');
 
-  // Default ad_storage to 'denied'.
-  gtag('consent', 'default', {
-    'ad_storage': 'denied',
-    'analytics_storage': 'denied'
-  });
-  gtag('set', 'url_passthrough', true);
-  gtag('set', 'ads_data_redaction', false);
-
-<!-- in alternativa qui si puó incollare il codice di Tag Manager togliendo il primo <script> -->
-  gtag('js', new Date());
-  gtag('config', 'GA_MEASUREMENT_ID');
+    gtag('set', 'url_passthrough', true);
+    gtag('set', 'ads_data_redaction', false);
+  
+    <!-- This conditional evaluates if there are cookies already and prevents to block Google Tags if cookies were accepted -->
+    if(document.cookie === ""){
+      gtag('consent', 'default', {
+        'ad_storage': 'denied',
+        'analytics_storage': 'denied',
+        'wait_for_update': 500
+        });
+      }
+  else{
+      gtag('consent', 'update', {
+        'ad_storage': 'granted',
+        'analytics_storage':'granted'
+        });
+     }
 </script>
 
-<!-- TODO this section should be updated based on your business requirements. 
-Ovvero la funzione potrebbe essere richiamata dal pulsante di accettazione dei cookies -->
+
 <script>
   function consentGranted() {
     gtag('consent', 'update', {
       'ad_storage': 'granted',
-      'analytics_storage': 'granted'
+      'analytics_storage':'granted'
     });
   }
 </script>
-
+</head>
 <body>
   ...
   <button onclick="consentGranted()">Yes</button>
   ...
 </body>
+
+</html>
 ```
 ***
-2. La seconda implementazione coinvolge Tag Manager ed ha la seguente struttura (Utilizzare [questo contenitore](https://github.com/paolobtl/consentmode/blob/0fe28f6927be678159fb11578dd8a4bf18a876b0/GTM_consentMode.json) come esempio):
+2. The second implementation involves Tag Manager and has the following structure (Use [this container](https://github.com/paolobtl/consentmode/blob/0fe28f6927be678159fb11578dd8a4bf18a876b0/GTM_consentMode.json) as example):
 ```html
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
 
-  // Default ad_storage to 'denied'.
-  gtag('consent', 'default', {
-    'ad_storage': 'denied',
-    'analytics_storage': 'denied'
-  });
   gtag('set', 'url_passthrough', true);
-  gtag('set', 'ads_data_redaction', false);
+   gtag('set', 'ads_data_redaction', false);
+  
+    if(document.cookie === ""){
+      gtag('consent', 'default', {
+        'ad_storage': 'denied',
+        'analytics_storage': 'denied',
+        'wait_for_update': 500
+        });
+      }
+  else{
+      gtag('consent', 'update', {
+        'ad_storage': 'granted',
+        'analytics_storage':'granted'
+        });
+     }
   
 <!-- Google Tag Manager -->
 (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -71,7 +98,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 </body>
 ```
 
-Si noti come il click del pulsante Yes invia un evento demominato <code>consentGranted</code>. Questo evento ci servirá per attivare lo snippet 
+Not that the button sends an event called <code>consentGranted</code>. This event will be used in GTM to send the following snippet 
 
 ```js
 gtag('consent', 'update', {
@@ -80,5 +107,5 @@ gtag('consent', 'update', {
     });
 ```
 
-ll sovramenzionato snippet andrà inserito in un tag HTML personalizzato.
-[Guida di Google Developers](https://developers.google.com/gtagjs/devguide/consent)
+The aforementioned snippet will be added as a custom HTML tag.
+[Google Developers Article](https://developers.google.com/gtagjs/devguide/consent)
