@@ -1,5 +1,5 @@
-Ci sono due modalità testate per il Consent Mode di Google e non prevedono l'utilizzo di CMP quali Iubenda, Cookiebot etc.
-
+Here I am using two ways to implement the Consent Mode without using CMPs as Iubenda, Cookiebot etc.
+Ideally, you wanna implement one of this if you want to create your own cookie banner or you are using a generic cookie banner.
 
 1. The first method calls the function <code>consentGranted</code> by clicking the Cookie acceptance button. 
 Please refer to [this file](https://github.com/paolobtl/consentmode/blob/338673c9498658bf00d097b9afe15cc7dd69470b/consent.html) to test this implementation.
