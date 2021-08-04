@@ -24,7 +24,7 @@ Please refer to [this file](https://github.com/paolobtl/consentmode/blob/338673c
     gtag('set', 'url_passthrough', true);
     gtag('set', 'ads_data_redaction', false);
   
-    <!-- This conditional evaluates if there are cookies already and prevents to block Google Tags if cookies were accepted -->
+    <!-- This conditional evaluates if there are cookies already and prevents blocking Google Tags on a page reload -->
     if(document.cookie === ""){
       gtag('consent', 'default', {
         'ad_storage': 'denied',
