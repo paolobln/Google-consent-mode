@@ -12,7 +12,7 @@ The logic behind the Consent Mode itself it is quite easy:
 - The selection on the cookie banner calls the command <code>gtag('consent', 'update'</code> which should update the tags accordingly to the user's preferencs
 ***
 I am using two ways to implement the Consent Mode without using CMPs as Iubenda, Cookiebot etc.
-Ideally, you wanna implement one of this if you want to create your own cookie banner or you are using a generic cookie banner.
+Ideally, you wanna use one of these if you want to create your own cookie banner or if you are using a generic cookie banner.
 
 Additional links from Google:
 - [Consent management platform integrations](https://support.google.com/tagmanager/answer/10718549#cmp-integrations)
