@@ -6,32 +6,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Consent Mode</title>
 
-
     <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-00000-3"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-000000-3');
 
-  // Default ad_storage to 'denied'.
-  gtag('consent', 'default', {
-    'ad_storage': 'denied',
-    'analytics_storage': 'denied',
-    'wait_for_update': 500
-  });
-  gtag('set', 'url_passthrough', true);
-  gtag('set', 'ads_data_redaction', false);
-
-
-  gtag('js', new Date());
-  gtag('config', 'UA-000000-3');
+    gtag('set', 'url_passthrough', true);
+    gtag('set', 'ads_data_redaction', false);
+    if(document.cookie === ""){
+      gtag('consent', 'default', {
+        'ad_storage': 'denied',
+        'analytics_storage': 'denied',
+        'wait_for_update': 500
+        });
+      }
+  else{
+      gtag('consent', 'update', {
+        'ad_storage': 'granted',
+        'analytics_storage':'granted'
+        });
+     }
 </script>
-
+    
 <script>
   function consentGranted() {
     gtag('consent', 'update', {
-    'ad_storage': 'granted',
-    'analytics_storage': 'granted'
+      'ad_storage': 'granted',
+      'analytics_storage':'granted'
     });
   }
 </script>
