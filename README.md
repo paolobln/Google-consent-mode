@@ -10,7 +10,9 @@ The logic behind the Consent Mode itself it is quite easy:
 - The command <code>gtag('consent', 'default'</code> is called before any Google tag and before the cookie banner. At this stage the Analytics/Ads or GTM tag **has** to be   loaded as well. No cookies will be saved on visitor's machine
 - The cookied banner loads and waits for the user's choice
 - The selection on the cookie banner calls the command <code>gtag('consent', 'update'</code> which should update the tags accordingly to the user's preferencs
-
+***
+I am using two ways to implement the Consent Mode without using CMPs as Iubenda, Cookiebot etc.
+Ideally, you wanna implement one of this if you want to create your own cookie banner or you are using a generic cookie banner.
 
 Additional links from Google:
 - [Consent management platform integrations](https://support.google.com/tagmanager/answer/10718549#cmp-integrations)
