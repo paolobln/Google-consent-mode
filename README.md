@@ -2,9 +2,9 @@
 
 This repo aims to be an easy and understandable guide to the implementation of the [Consent Mode](https://support.google.com/google-ads/answer/10000067?hl=en) by Google if you are using your own cookie banner.
 There are three files:
-1. **consent.html** is an HTML page that show the logic behind the consent mode
+1. **consent.html** is an HTML page that shows the logic behind the consent mode and can be used to test your implementation 
 2. **GTM_consentMode.json** it is a Google Tag Manager container that can be [imported](https://support.google.com/tagmanager/answer/6106997?hl=en#import) in your GTM account
-3. **consentMode.md** explains two ways to implement this feature if you are using your own cookie banner
+3. **consentMode.md** shows two ways to implement this feature if you are using your own cookie banner
 ***
 The logic behind the Consent Mode itself it is quite easy:
 - The command <code>gtag('consent', 'default'</code> is called before any Google tag and before the cookie banner. At this stage the Analytics/Ads or GTM tag **has** to be   loaded as well. No cookies will be saved on visitor's machine
