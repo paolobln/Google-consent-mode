@@ -59,7 +59,7 @@ Please refer to [this file](https://github.com/paolobtl/consentmode/blob/338673c
 </html>
 ```
 ***
-2. The second implementation involves Tag Manager and has the following structure (Use [this container](https://github.com/paolobtl/consentmode/blob/0fe28f6927be678159fb11578dd8a4bf18a876b0/GTM_consentMode.json) as example):
+2. The second implementation involves Tag Manager and has the following structure (Use [this container](https://raw.githubusercontent.com/paolobtl/consentmode/main/GTM_consentMode.json) as example (press CTRL or CMD + S to save it):
 ```html
 <script>
   window.dataLayer = window.dataLayer || [];
