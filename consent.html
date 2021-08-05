@@ -9,13 +9,17 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-00000-3"></script>
 <script>
+    
+  //Initialize Data Layer
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
     gtag('config', 'UA-000000-3');
 
     gtag('set', 'url_passthrough', true);
-    gtag('set', 'ads_data_redaction', false);
+    gtag('set', 'ads_data_redaction', true);
+    
+    //Check if cookies exist, if not sets the storages as „denied"
     if(document.cookie === ""){
       gtag('consent', 'default', {
         'ad_storage': 'denied',
@@ -23,21 +27,21 @@
         'wait_for_update': 500
         });
       }
-  else{
+    else{
       gtag('consent', 'update', {
         'ad_storage': 'granted',
         'analytics_storage':'granted'
         });
      }
 </script>
-    
+    <!-- Ideally you wanna call and change the update command based on user's preferences . -->
 <script>
-  function consentGranted() {
-    gtag('consent', 'update', {
-      'ad_storage': 'granted',
-      'analytics_storage':'granted'
-    });
-  }
+     function consentGranted() {
+       gtag('consent', 'update', {
+         'ad_storage': 'granted',
+         'analytics_storage':'granted'
+        });
+      }
 </script>
 </head>
 <body>
