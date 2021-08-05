@@ -15,11 +15,12 @@
   function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
     gtag('config', 'UA-000000-3');
-
+    
+    //Update these boolean parameters on your needs
     gtag('set', 'url_passthrough', true);
     gtag('set', 'ads_data_redaction', true);
     
-    //Check if cookies exist, if not sets the storages as „denied"
+    //Check if cookies exist, if not, sets the storages as "denied" adn calls the "default" command.
     if(document.cookie === ""){
       gtag('consent', 'default', {
         'ad_storage': 'denied',
@@ -34,8 +35,8 @@
         });
      }
 </script>
-    <!-- Ideally you wanna call and change the update command based on user's preferences . -->
 <script>
+    <!-- Ideally you wanna call and change the 'update' command based on user's preferences . -->
      function consentGranted() {
        gtag('consent', 'update', {
          'ad_storage': 'granted',
