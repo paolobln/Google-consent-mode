@@ -15,7 +15,6 @@ Please refer to [this file](https://github.com/paolobtl/consentmode/blob/338673c
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-00000-3"></script>
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-00000-3"></script>
 <script>
     
   //Initialize Data Layer
