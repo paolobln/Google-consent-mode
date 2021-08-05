@@ -15,16 +15,20 @@ Please refer to [this file](https://github.com/paolobtl/consentmode/blob/338673c
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-00000-3"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-00000-3"></script>
 <script>
+    
+  //Initialize Data Layer
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
     gtag('config', 'UA-000000-3');
-
+    
+    //Update these boolean parameters on your needs
     gtag('set', 'url_passthrough', true);
-    gtag('set', 'ads_data_redaction', false);
-  
-    <!-- This conditional evaluates if there are cookies already and prevents blocking Google Tags on a page reload -->
+    gtag('set', 'ads_data_redaction', true);
+    
+    //Check if cookies exist, if not, sets the storages as "denied" adn calls the "default" command.
     if(document.cookie === ""){
       gtag('consent', 'default', {
         'ad_storage': 'denied',
@@ -32,22 +36,21 @@ Please refer to [this file](https://github.com/paolobtl/consentmode/blob/338673c
         'wait_for_update': 500
         });
       }
-  else{
+    else{
       gtag('consent', 'update', {
         'ad_storage': 'granted',
         'analytics_storage':'granted'
         });
      }
 </script>
-
-
 <script>
-  function consentGranted() {
-    gtag('consent', 'update', {
-      'ad_storage': 'granted',
-      'analytics_storage':'granted'
-    });
-  }
+    <!-- Ideally you wanna call and change the 'update' command based on user's preferences . -->
+     function consentGranted() {
+       gtag('consent', 'update', {
+         'ad_storage': 'granted',
+         'analytics_storage':'granted'
+        });
+      }
 </script>
 </head>
 <body>
@@ -66,7 +69,7 @@ Please refer to [this file](https://github.com/paolobtl/consentmode/blob/338673c
   function gtag(){dataLayer.push(arguments);}
 
   gtag('set', 'url_passthrough', true);
-   gtag('set', 'ads_data_redaction', false);
+   gtag('set', 'ads_data_redaction', true);
   
     if(document.cookie === ""){
       gtag('consent', 'default', {
@@ -98,7 +101,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 </body>
 ```
 
-Not that the button sends an event called <code>consentGranted</code>. This event will be used in GTM to send the following snippet 
+Note that the button sends an event called <code>consentGranted</code>. This event will be used in GTM to send the following snippet 
 
 ```js
 gtag('consent', 'update', {
