@@ -5,12 +5,6 @@
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <title>Consent Mode</title>
-      <style>
-         #ipaddress {
-         bottom: 10%;
-         position: fixed;
-         }
-      </style>
    
       <!-- Global site tag (gtag.js) - Google Analytics - DELETE IT IF YOU WILL USE GTM-->
       <script async src="https://www.googletagmanager.com/gtag/js?id=UA-00000-1"></script>
@@ -69,14 +63,5 @@
      	<button onclick="consentGranted(); createCookie('_cookieconsent','granted',365)">Yes</button>
       <button>No</button>
    	  </div>
-      <div id="ipaddress">
-         <!-- IP Address -->
-         <script type="application/javascript">
-            function getIP(json) {
-              document.write("IP address is: ", json.ip);
-            }
-         </script>
-         <script type="application/javascript" src="https://api.ipify.org?format=jsonp&callback=getIP"></script>
-      </div>
    </body>
 </html>
