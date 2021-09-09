@@ -1,54 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Consent Mode</title>
-
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-00000-3"></script>
-<script>
-    
-  //Initialize Data Layer
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-    
-    //Check if cookies exist, if not, sets the storages as "denied" adn calls the "default" command.
-    if(document.cookie === ""){
-      gtag('consent', 'default', {
-        'ad_storage': 'denied',
-        'analytics_storage': 'denied',
-        'wait_for_update': 500
-        });
-      }
-    else{
-      gtag('consent', 'update', {
-        'ad_storage': 'granted',
-        'analytics_storage':'granted'
-        });
-     }
-</script>
-<script>
-    <!-- Ideally you wanna call and change the 'update' command based on user's preferences . -->
-     function consentGranted() {
-       gtag('consent', 'update', {
-         'ad_storage': 'granted',
-         'analytics_storage':'granted'
-        });
-      }
-    
-  gtag('js', new Date());
-  gtag('config', 'UA-000000-3');
-  //Update these parameters on your need
-  gtag('set', 'url_passthrough', true);
-  gtag('set', 'ads_data_redaction', true);
-</script>
-</head>
-<body>
-  ...
-  <button onclick="consentGranted()">Yes</button>
-  ...
-</body>
-
+   <head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Consent Mode</title>
+      <style>
+         #ipaddress {
+         bottom: 10%;
+         position: fixed;
+         }
+      </style>
+   
+      <!-- Global site tag (gtag.js) - Google Analytics - DELETE IT IF YOU WILL USE GTM-->
+      <script async src="https://www.googletagmanager.com/gtag/js?id=UA-00000-1"></script>
+      <script>
+         //Initialize Data Layer
+         window.dataLayer = window.dataLayer || [];
+         function gtag(){dataLayer.push(arguments);}
+         
+           //Update these parameters on your needs
+           gtag('set', 'url_passthrough', true);
+           gtag('set', 'ads_data_redaction', true);
+           
+           //Checks if cookies exist and calls the default or update command accordingly
+         if(document.cookie.indexOf("_cookieconsent=") === -1){
+             gtag('consent', 'default', {
+               	'ad_storage': 'denied',
+               	'analytics_storage': 'denied',
+               	'wait_for_update': 500});
+             }
+           else{
+             gtag('consent', 'update', {
+              		'ad_storage': 'granted',
+               	'analytics_storage':'granted'
+               	});
+            }
+         //Here you can use GTM code as well
+         gtag('js', new Date());
+         gtag('config', 'UA-000000-1');
+      </script>
+   
+      <script>
+         function createCookie(name,value,days) {
+         if (days) {
+         var date = new Date();
+         date.setTime(date.getTime()+(days*24*60*60*1000));
+         var expires = "; expires="+date.toGMTString();
+         }
+         else var expires = "";
+         
+         var domain = window.location.hostname.split('.').slice(-3).join('.');
+         document.cookie = name+"="+value+expires+"; path=/; domain=" + domain;
+         }
+   		
+      	<!-- Ideally you wanna call and change the 'update' command based on user's preferences . -->
+         function consentGranted() {
+            gtag('consent', 'update', {
+              'ad_storage': 'granted',
+              'analytics_storage':'granted'
+             });
+           }
+      </script>
+   </head>
+   <body>
+   <p>Please accept our cookies &#10084</p>
+      <div>
+     	<button onclick="consentGranted(); createCookie('_cookieconsent','granted',365)">Yes</button>
+      <button>No</button>
+   	  </div>
+      <div id="ipaddress">
+         <!-- IP Address -->
+         <script type="application/javascript">
+            function getIP(json) {
+              document.write("IP address is: ", json.ip);
+            }
+         </script>
+         <script type="application/javascript" src="https://api.ipify.org?format=jsonp&callback=getIP"></script>
+      </div>
+   </body>
 </html>
